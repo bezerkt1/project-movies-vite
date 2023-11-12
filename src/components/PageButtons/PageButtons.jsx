@@ -3,7 +3,9 @@ import "./PageButtons.css";
 
 const PageButtons = ({ page, total_pages }) => {
   let location = useHref().split("/");
-  location.pop();
+  if (location[location.length - 1] === page) {
+    location.pop();
+  }
   location = location.join("/");
 
   return (

@@ -28,4 +28,12 @@
   padding: 10px;
   font-size: large;
   cursor: pointer;
+  background-color: #ededed;
+  color: #131313;
+  transition: 1s ease;
+}
+
+.PageButtons > div > a > button:hover {
+  background-color: #131313;
+  color: #ededed;
 }

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import MovieCover from "../components/MovieCover/MovieCover";
 import BackButton from "../components/BackButton/BackButton";
 import PageButtons from "../components/PageButtons/PageButtons";
@@ -10,18 +10,26 @@ const capitalizeFirstLetter = (string) => {
 };
 
 const MovieList = ({ apiKey, type }) => {
-  let { page } = useParams();
+  const navigate = useNavigate();
+  const { page } = useParams();
   const [movieList, setMovieList] = useState(null);
 
   useEffect(() => {
-    if (page === undefined) {
-      page = 1;
+    // check to see page is not out of bounds
+    if (page === undefined || page < 1) {
+      return navigate(`/${type}/1`);
+    } else if (page > 500) {
+      return navigate(`/${type}/500`);
     }
     fetch(
       `https://api.themoviedb.org/3/movie/${type}?api_key=${apiKey}&language=en-US&page=${page}`
     )
       .then((response) => response.json())
       .then((data) => {
+        if (page < 1 || page > data?.total_pages) {
+          console.log("text");
+        }
+        console.log(data);
         setMovieList(data);
       })
       .catch((error) => console.error("Error fetching movie data:", error));

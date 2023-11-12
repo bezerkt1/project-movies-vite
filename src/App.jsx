@@ -13,6 +13,7 @@ const apiKey = "02ea61ca3ab92ec36a59540116fd263c";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
+    // error page surrounds all the routes to cover errors in the whole application
     <Route errorElement={<NotFound />}>
       <Route path="/" element={<Root />} />
       <Route

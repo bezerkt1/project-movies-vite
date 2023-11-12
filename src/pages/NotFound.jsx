@@ -7,9 +7,9 @@ const NotFound = () => {
   return (
     <>
       <div>
-        <h2>NOTFOUND</h2>
+        <h2>Something went wrong</h2>
         <p>
-          <i>{error.statusText || error.message}</i>
+          Cause: <i>{error.statusText || error.message}</i>
         </p>
       </div>
     </>

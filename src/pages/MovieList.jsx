@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import MovieCover from "../components/MovieCover/MovieCover";
 import BackButton from "../components/BackButton/BackButton";
+import PageButtons from "../components/PageButtons/PageButtons";
 import "./MovieList.css";
 
 const capitalizeFirstLetter = (string) => {
@@ -9,6 +10,7 @@ const capitalizeFirstLetter = (string) => {
 };
 
 const MovieList = ({ apiKey, type }) => {
+  let { page } = useParams();
   const [movieList, setMovieList] = useState(null);
 
   useEffect(() => {
@@ -25,20 +27,9 @@ const MovieList = ({ apiKey, type }) => {
       .catch((error) => console.error("Error fetching movie data:", error));
   }, [page]);
 
-  const handlePage = (num) => {
-    const x = page + num;
-    if (x > 0) {
-      setPage(x);
-    } else if (x >= movieList.total_pages) {
-      setPage(movieList.total_pages);
-    } else {
-      setPage(1);
-    }
-  };
-
   return (
     <>
-      <BackButton />
+      <BackButton text="Lists" link="/" />
       <h1>{capitalizeFirstLetter(type)} Movies</h1>
       <div className="MovieList">
         {movieList ? (
@@ -49,17 +40,9 @@ const MovieList = ({ apiKey, type }) => {
           <p>Loading...</p>
         )}
       </div>
-      <div className="PageButtons">
-        {page > 1 && <button onClick={() => handlePage(-1)}>Previous</button>}
-        {page}
-        {movieList && (
-          <>
-            {page < movieList.total_pages && (
-              <button onClick={() => handlePage(1)}>Next</button>
-            )}
-          </>
-        )}
-      </div>
+      {movieList && (
+        <PageButtons page={page} total_pages={movieList.total_pages} />
+      )}
     </>
   );
 };

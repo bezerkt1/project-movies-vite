@@ -6,11 +6,14 @@ p {
   font-size: large;
 }
 
-.PageButtons {
+.MovieList {
   display: flex;
-  align-content: space-between;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  margin: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+  .MovieList {
+    flex-direction: column;
+  }
 }

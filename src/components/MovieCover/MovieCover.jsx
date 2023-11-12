@@ -25,4 +25,11 @@ const MovieCover = ({ id, poster_path, title, release_date }) => {
   );
 };
 
+MovieCover.defaultProps = {
+  id: "no id",
+  poster_path: "no path",
+  title: "No title",
+  release_date: "No release date",
+};
+
 export default MovieCover;

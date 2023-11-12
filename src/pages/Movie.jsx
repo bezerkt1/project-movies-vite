@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import BackButton from "../components/BackButton/BackButton";
 import "./Movie.css";
+import noimg from "../images/noimg.png";
 
 const Movie = ({ apiKey }) => {
   const { movieId } = useParams();
@@ -23,15 +24,22 @@ const Movie = ({ apiKey }) => {
       {movie ? (
         <div
           className="Movie"
-          style={{
-            backgroundImage: `url(https://image.tmdb.org/t/p/w1280/${movie.backdrop_path})`,
-          }}
+          style={
+            movie.backdrop_path && {
+              backgroundImage: `url(https://image.tmdb.org/t/p/w1280/${movie.backdrop_path})`,
+            }
+          }
         >
-          <BackButton />
+          <BackButton text="Back" link="back" />
           <div className="MovieInfo">
-            <img
-              src={`https://image.tmdb.org/t/p/w1280/${movie.poster_path}`}
-            />
+            {movie.poster_path ? (
+              <img
+                src={`https://image.tmdb.org/t/p/w1280/${movie.poster_path}`}
+                alt={movie.title}
+              />
+            ) : (
+              <img src={noimg} alt={movie.title} />
+            )}
             <div>
               <h1>{movie.title}</h1>
               <h2>{movie.tagline}</h2>

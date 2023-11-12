@@ -4,13 +4,13 @@
   justify-content: center;
 }
 
-.Movie {
+.MovieCover {
   flex: 20%;
   max-width: 24%;
   padding: 2px;
 }
 
-.Movie > a {
+.MovieCover > a {
   text-decoration: none;
   color: #ededed;
 }
@@ -44,7 +44,7 @@
 }
 
 @media screen and (max-width: 992px) {
-  .Movie {
+  .MovieCover {
     flex: 48%;
     max-width: 48%;
   }
@@ -55,7 +55,7 @@
     flex-direction: column;
   }
 
-  .Movie {
+  .MovieCover {
     max-width: 100%;
   }
 }

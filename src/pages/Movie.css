@@ -1,0 +1,59 @@
+.Movie {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.backButton {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  padding: 5px;
+  border: 1px solid #131313;
+  font-size: large;
+  background-color: #ededed;
+  color: #131313;
+  box-shadow: 5px 5px 5px #131313;
+  cursor: pointer;
+  transition: 1s ease;
+}
+
+.backButton:hover {
+  background-color: #131313;
+  color: #ededed;
+}
+.MovieInfo {
+  display: flex;
+  align-items: center; 
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.MovieInfo > img {
+  width: 30%;
+}
+
+.MovieInfo > div {
+  padding: 10px;
+}
+
+@media screen and (max-width: 992px) {
+  .MovieInfo {
+    flex-direction: column;
+  }
+
+  .MovieInfo > img {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .MovieInfo > img {
+    width: 100%;
+  }
+}

@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import MovieCover from "../components/MovieCover/MovieCover";
+import "./MovieList.css";
 
-const MovieList = ({ apiKey }) => {
+const MovieList = ({ apiKey, type }) => {
   const [movieList, setMovieList] = useState(null);
   const [page, setPage] = useState(1);
 
   useEffect(() => {
     fetch(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=${page}`
+      `https://api.themoviedb.org/3/movie/${type}?api_key=${apiKey}&language=en-US&page=${page}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -21,6 +22,8 @@ const MovieList = ({ apiKey }) => {
     const x = page + num;
     if (x > 0) {
       setPage(x);
+    } else if (x >= movieList.total_pages) {
+      setPage(movieList.total_pages);
     } else {
       setPage(1);
     }
@@ -41,7 +44,13 @@ const MovieList = ({ apiKey }) => {
       <div className="PageButtons">
         {page > 1 && <button onClick={() => handlePage(-1)}>Previous</button>}
         {page}
-        <button onClick={() => handlePage(1)}>Next</button>
+        {movieList && (
+          <>
+            {page < movieList.total_pages && (
+              <button onClick={() => handlePage(1)}>Next</button>
+            )}
+          </>
+        )}
       </div>
     </>
   );

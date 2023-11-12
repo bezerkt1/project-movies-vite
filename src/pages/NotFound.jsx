@@ -6,7 +6,7 @@ const NotFound = () => {
   console.error(error);
   return (
     <>
-      <div>
+      <div className="NotFound">
         <h2>Something went wrong</h2>
         <p>
           Cause: <i>{error.statusText || error.message}</i>

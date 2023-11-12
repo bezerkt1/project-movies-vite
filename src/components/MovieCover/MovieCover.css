@@ -1,0 +1,61 @@
+.MovieList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.Movie {
+  flex: 20%;
+  max-width: 20%;
+  padding: 2%;
+}
+
+.Movie > a {
+  text-decoration: none;
+  color: #ededed;
+}
+
+.MovieImage {
+  position: relative;
+}
+
+.MovieImage > img {
+  width: 100%;
+}
+
+.MovieOverlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity:0;
+  transition: .5s ease;
+}
+
+.MovieOverlay:hover {
+  opacity: 1;
+}
+
+@media screen and (max-width: 992px) {
+  .album {
+    flex: 40%;
+    max-width: 40%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .albumList {
+    flex-direction: column;
+  }
+
+  .album {
+    max-width: 100%;
+  }
+}

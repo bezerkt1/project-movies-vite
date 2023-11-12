@@ -8,24 +8,6 @@
   background-size: cover;
 }
 
-.backButton {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  padding: 5px;
-  border: 1px solid #131313;
-  font-size: large;
-  background-color: #ededed;
-  color: #131313;
-  box-shadow: 5px 5px 5px #131313;
-  cursor: pointer;
-  transition: 1s ease;
-}
-
-.backButton:hover {
-  background-color: #131313;
-  color: #ededed;
-}
 .MovieInfo {
   display: flex;
   align-items: center; 

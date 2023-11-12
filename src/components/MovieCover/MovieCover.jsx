@@ -5,7 +5,7 @@ import noimg from "../../images/noimg.png";
 const MovieCover = ({ id, poster_path, title, release_date }) => {
   return (
     <div className="MovieCover">
-      <NavLink to={`/movies/${id}`}>
+      <NavLink to={`/movie/${id}`}>
         <div className="MovieImage">
           {poster_path ? (
             <img
@@ -16,11 +16,8 @@ const MovieCover = ({ id, poster_path, title, release_date }) => {
             <img src={noimg} alt={title} />
           )}
           <div className="MovieOverlay">
-            <p>
-              {title}
-              <br />
-              {release_date}
-            </p>
+            <p>{title}</p>
+            <p>Release Date: {release_date}</p>
           </div>
         </div>
       </NavLink>

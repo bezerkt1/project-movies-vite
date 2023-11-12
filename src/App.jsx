@@ -14,15 +14,31 @@ const router = createBrowserRouter([
   },
   { path: "/popular", element: <MovieList apiKey={apiKey} type="popular" /> },
   {
+    path: "/popular/:page",
+    element: <MovieList apiKey={apiKey} type="popular" />,
+  },
+  {
     path: "/top_rated",
+    element: <MovieList apiKey={apiKey} type="top_rated" />,
+  },
+  {
+    path: "/top_rated/:page",
     element: <MovieList apiKey={apiKey} type="top_rated" />,
   },
   {
     path: "/now_playing",
     element: <MovieList apiKey={apiKey} type="now_playing" />,
   },
+  {
+    path: "/now_playing/:page",
+    element: <MovieList apiKey={apiKey} type="now_playing" />,
+  },
   { path: "/upcoming", element: <MovieList apiKey={apiKey} type="upcoming" /> },
-  { path: "/movies/:movieId", element: <Movie apiKey={apiKey} /> },
+  {
+    path: "/upcoming/:page",
+    element: <MovieList apiKey={apiKey} type="upcoming" />,
+  },
+  { path: "/movie/:movieId", element: <Movie apiKey={apiKey} /> },
 ]);
 
 export const App = () => {

@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import BackButton from "../components/BackButton/BackButton";
 import "./Movie.css";
 
 const Movie = ({ apiKey }) => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(
@@ -15,7 +14,6 @@ const Movie = ({ apiKey }) => {
       .then((response) => response.json())
       .then((data) => {
         setMovie(data);
-        console.log("Movie data", data);
       })
       .catch((error) => console.error("Error fetching movie data:", error));
   }, [movieId]);
@@ -29,9 +27,7 @@ const Movie = ({ apiKey }) => {
             backgroundImage: `url(https://image.tmdb.org/t/p/w1280/${movie.backdrop_path})`,
           }}
         >
-          <button class="backButton" onClick={() => navigate(-1)}>
-            &lt;&nbsp;Movies
-          </button>
+          <BackButton />
           <div className="MovieInfo">
             <img
               src={`https://image.tmdb.org/t/p/w1280/${movie.poster_path}`}

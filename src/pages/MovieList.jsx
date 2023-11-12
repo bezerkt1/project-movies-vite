@@ -26,8 +26,8 @@ const MovieList = ({ apiKey, type }) => {
     )
       .then((response) => response.json())
       .then((data) => {
-        if (page < 1 || page > data?.total_pages) {
-          console.log("text");
+        if (page > data?.total_pages) {
+          return navigate(`/${type}/${data.total_pages}`);
         }
         console.log(data);
         setMovieList(data);

@@ -9,7 +9,6 @@ const capitalizeFirstLetter = (string) => {
 };
 
 const MovieList = ({ apiKey, type }) => {
-  let { page } = useParams();
   const [movieList, setMovieList] = useState(null);
 
   useEffect(() => {

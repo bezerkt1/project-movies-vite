@@ -1,0 +1,26 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+ul {
+  display: inline-block;
+  list-style-type: none;
+}
+
+li {
+  width: max-content;}
+
+li:hover {
+  list-style-type: square;
+  color: #13ed13;
+}
+
+a {
+  text-align: center;
+  text-decoration: none;
+  font-size: large;
+  color: #ededed;
+}

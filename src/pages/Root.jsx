@@ -4,18 +4,23 @@ import "./Root.css";
 const Root = () => {
   return (
     <>
-      <NavLink to="/popular">
-        <h1>Popular</h1>
-      </NavLink>
-      <NavLink to="/top_rated">
-        <h1>Top Rated</h1>
-      </NavLink>
-      <NavLink to="/now_playing">
-        <h1>Now Playing</h1>
-      </NavLink>
-      <NavLink to="/upcoming">
-        <h1>Upcoming</h1>
-      </NavLink>
+      <div className="menu">
+        <h1>Movie lists</h1>
+        <ul>
+          <NavLink to="/popular">
+            <li>Popular</li>
+          </NavLink>
+          <NavLink to="/top_rated">
+            <li>Top Rated</li>
+          </NavLink>
+          <NavLink to="/now_playing">
+            <li>Now Playing</li>
+          </NavLink>
+          <NavLink to="/upcoming">
+            <li>Upcoming</li>
+          </NavLink>
+        </ul>
+      </div>
     </>
   );
 };

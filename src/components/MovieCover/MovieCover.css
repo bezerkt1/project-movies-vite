@@ -6,8 +6,8 @@
 
 .Movie {
   flex: 20%;
-  max-width: 20%;
-  padding: 2%;
+  max-width: 24%;
+  padding: 2px;
 }
 
 .Movie > a {
@@ -44,18 +44,18 @@
 }
 
 @media screen and (max-width: 992px) {
-  .album {
-    flex: 40%;
-    max-width: 40%;
+  .Movie {
+    flex: 48%;
+    max-width: 48%;
   }
 }
 
 @media screen and (max-width: 600px) {
-  .albumList {
+  .MovieList {
     flex-direction: column;
   }
 
-  .album {
+  .Movie {
     max-width: 100%;
   }
 }

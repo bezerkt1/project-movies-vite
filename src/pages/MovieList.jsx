@@ -15,24 +15,33 @@ const MovieList = ({ apiKey }) => {
         console.log("MovieList data", data);
       })
       .catch((error) => console.error("Error fetching movie data:", error));
-  }, []);
+  }, [page]);
+
+  const handlePage = (num) => {
+    const x = page + num;
+    if (x > 0) {
+      setPage(x);
+    } else {
+      setPage(1);
+    }
+  };
 
   return (
     <>
-      <div>
-        <h2>Popular Movies</h2>
-        <div className="MovieList">
-          {movieList ? (
-            movieList.results.map((movie) => {
-              return <MovieCover {...movie} />;
-            })
-          ) : (
-            <p>Loading...</p>
-          )}
-        </div>
-        <button>Previous</button>
+      <h2>Popular Movies</h2>
+      <div className="MovieList">
+        {movieList ? (
+          movieList.results.map((movie) => {
+            return <MovieCover key={movie.id} {...movie} />;
+          })
+        ) : (
+          <p>Loading...</p>
+        )}
+      </div>
+      <div className="PageButtons">
+        {page > 1 && <button onClick={() => handlePage(-1)}>Previous</button>}
         {page}
-        <button>Next</button>
+        <button onClick={() => handlePage(1)}>Next</button>
       </div>
     </>
   );

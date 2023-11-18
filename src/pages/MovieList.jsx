@@ -6,6 +6,7 @@ import PageButtons from "../components/PageButtons/PageButtons";
 import "./MovieList.css";
 
 const capitalizeFirstLetter = (string) => {
+  string = string.replace("_", " ");
   return string.charAt(0).toUpperCase() + string.slice(1);
 };
 
